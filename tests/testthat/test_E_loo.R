@@ -248,9 +248,6 @@ test_that("weighted variance works", {
 
 test_that("E_loo pareto_k does not depend on the scale of x", {
   # posterior::pareto_khat() of h * r also needs the relative tolerance
-  # with an older posterior it returns NA here
-  skip_if(posterior:::is_constant(c(1e-20, 2e-20)),
-          "posterior::is_constant() has an absolute tolerance")
   k <- E_loo(x, psis_mat, type = "mean", log_ratios = log_rats)$pareto_k
   # with 1e-307, h * r underflows unless the scaling includes h
   for (s in c(1e-20, 1e-200, 1e-307)) {

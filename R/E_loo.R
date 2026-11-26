@@ -310,7 +310,7 @@ E_loo_khat.matrix <- function(x, psis_object, log_ratios, ...) {
 #' @return Scalar h-specific k-hat estimate.
 #'
 .E_loo_khat_i <- function(x_i, log_ratios_i, tail_len_i, khat_r_i) {
-  if (is.null(x_i) || is_constant(x_i) || length(unique(x_i)) == 2 ||
+  if (is.null(x_i) || posterior::is_constant(x_i) || length(unique(x_i)) == 2 ||
         anyNA(x_i) || any(is.infinite(x_i))) {
     return(khat_r_i)
   }
